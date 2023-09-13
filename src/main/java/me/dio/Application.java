@@ -12,8 +12,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class Application {
 
-	@Value("${spring.profiles.active}")
-	private String activeProfile;
 
 	public static void main(String[] args) {
 		
@@ -21,13 +19,7 @@ public class Application {
 		SpringApplication.run(Application.class, args);
 	}
 
-	@PostConstruct
-	public void init() {
-		if (activeProfile.equals("dev")) {
-			System.setProperty("spring.config.name", "application-dev");
-		} else if (activeProfile.equals("prd")) {
-			System.setProperty("spring.config.name", "application-prd");
-		}
-	}
 
 }
+
+
